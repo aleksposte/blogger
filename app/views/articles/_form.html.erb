@@ -1,0 +1,62 @@
+<%= render partial: 'form' %>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-color: #D3D3D3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>
+                          <%= @article.title %>
+                        </h1>
+                        <p class="post-meta">Posted by <%= @article.created_at.httpdate %></p>
+                      <p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>
+                      <%= @article.body %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+    
+    <hr>
+
+    <!-- Tags -->
+    
+    <p>
+      <span class="col-tags">
+      <% @article.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag), class: 'post-meta-tags'  %>
+      <% end %>
+      <span>
+    </p>
+
+    <hr>
+
+    <!-- Comments -->
+    
+    <div class="col-comments">
+      <h5>Comments (<%= @article.comments.size %>)</h5>
+
+      <p>
+        <%= render partial: 'articles/comment', collection: @article.comments %>
+      </p>
+
+      <p>
+        <%= render partial: 'comments/form' %>  
+      </p>
+    </div>
+
+    <hr>

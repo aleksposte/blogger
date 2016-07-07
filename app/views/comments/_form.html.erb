@@ -1,0 +1,18 @@
+
+<h5>Add Comment:</h5>
+
+<%= form_for [ @article, @comment ] do |f|
+%>
+  <p class="post-comments">
+    <%= f.label :author_name, "You name" %>
+    <%= f.text_field :author_name %>
+  </p>
+  <p class="post-comments">
+    <%= f.label :body, "You comment" %>
+    <%= f.text_area :body %>
+  </p>
+  <p class="post-comments ">
+    <%= f.submit 'Сomment' %>
+  </p>
+
+<% end %>

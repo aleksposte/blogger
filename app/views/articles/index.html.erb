@@ -1,0 +1,56 @@
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Rails Blog</h1>
+                        <hr class="small">
+                        <span class="subheading">Заметки и статьи о "Ruby on Rails"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              
+                <% @articles.each do |article| %>
+                  <div class="post-preview">
+                        <h2 class="post-title">
+                            
+                            <%= link_to article.title, article_path(:id => "#{article.id}-#{article.title.parameterize}") %>
+                        </h2>
+                        <h3 class="post-subtitle">
+                            <%= article.body.first(800) %>
+                        </h3>
+                      <p class="post-meta">Posted by <%= article.created_at.httpdate %></p>
+                      <p>
+                        <% article.tags.each do |tag| %>
+                          <%= link_to tag.name, tag_path(tag), class: 'post-meta-tags' %>
+                        <% end %>
+                      </p>
+                      <hr>
+                  </div>
+                 <%end%> 
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- jQuery -->
+    <script src="app/assets/javascripts/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="app/assets/javascripts/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="app/assets/javascripts/clean-blog.min.js"></script>
+
+

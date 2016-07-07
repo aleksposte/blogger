@@ -1,0 +1,31 @@
+<h2>Tags All</h2>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li>
+      <%= link_to tag.name, tag_path(tag)  %>
+    </li>
+  <% end %>
+</ul>
+<!-- Main Content -->
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <ul>
+                <% @tags.each do |tag| %>
+                        <li>
+                          <%= link_to tag.name, tag_path(tag), class: 'post-meta-tags' %>  %>
+                        </li>
+                        
+
+                        <% end %>
+                      </ul>
+                      </p>
+                      <hr>
+               </div>
+
+            </div>
+
+            </div>
+       

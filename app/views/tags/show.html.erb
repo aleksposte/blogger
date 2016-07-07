@@ -1,0 +1,19 @@
+
+<!-- Main Content -->
+    <div class="container_new_articles">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <ul>
+                <h4>Sorted by: <%= @tag.name %></h4>
+                <% @tag.articles.each do |article| %>
+                  <li>
+                    <%= link_to article.title, article_path(article) %>
+                  </li>
+                  <hr>
+                <% end %>
+              </ul>
+              <hr>
+            </div>
+        </div>
+    </div>
+       

@@ -1,0 +1,12 @@
+
+  <h5 class="post-comments ">
+    Comment by: <%= comment.author_name %>
+  </h5>
+  <p class="post-comments">
+    <%= comment.body %>
+  </p>
+  <p class="post-comments-time">
+    Posted: <%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %>
+  </p>
+
+  <hr>
